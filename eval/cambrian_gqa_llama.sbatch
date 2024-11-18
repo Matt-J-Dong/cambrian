@@ -5,11 +5,11 @@
 #SBATCH --gres=gpu:4
 #SBATCH --time=48:00:00
 #SBATCH --mem=128GB
-#SBATCH --job-name=cambrian_textvqa
-#SBATCH --output=cambrian_textvqa.out
-#SBATCH --error=cambrian_textvqa-error.txt
+#SBATCH --job-name=cambrian_gqa_llama
+#SBATCH --output=cambrian_gqa_llama.out
+#SBATCH --error=cambrian_gqa_llama-error.txt
 #SBATCH --mail-user=matthew.dong@nyu.edu
-#SBATCH --mail-type=FAIL
+#SBATCH --mail-type=ALL
 
 singularity exec --nv --overlay $SCRATCH/new_env/overlay-50G-10M.ext3:ro /scratch/work/public/singularity/cuda11.8.86-cudnn8.7-devel-ubuntu22.04.2.sif /bin/bash -c "
 cd ..
@@ -30,5 +30,5 @@ if [ -f .env ]; then
 fi
 
 # Run your script
-bash scripts/run_benchmark.sh --benchmark textvqa --ckpt nyu-visionx/cambrian-13b --conv_mode llama_3
+bash scripts/run_benchmark.sh --benchmark gqa --ckpt liuhaotian/llava-v1.6-mistral-7b --conv_mode llama_3
 "

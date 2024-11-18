@@ -30,5 +30,5 @@ if [ -f .env ]; then
 fi
 
 # Run your script
-bash scripts/run_benchmark.sh --benchmark mmvp --ckpt nyu-visionx/cambrian-8b --conv_mode llama_3
+bash scripts/run_benchmark.sh --benchmark mmvp --ckpt nyu-visionx/cambrian-13b --conv_mode llama_3
 "

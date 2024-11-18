@@ -5,9 +5,9 @@
 #SBATCH --gres=gpu:4
 #SBATCH --time=48:00:00
 #SBATCH --mem=128GB
-#SBATCH --job-name=cambrian_textvqa
-#SBATCH --output=cambrian_textvqa.out
-#SBATCH --error=cambrian_textvqa-error.txt
+#SBATCH --job-name=cambrian_textvqa_llama
+#SBATCH --output=cambrian_textvqa_llama.out
+#SBATCH --error=cambrian_textvqa_llama-error.txt
 #SBATCH --mail-user=matthew.dong@nyu.edu
 #SBATCH --mail-type=FAIL
 
@@ -30,5 +30,5 @@ if [ -f .env ]; then
 fi
 
 # Run your script
-bash scripts/run_benchmark.sh --benchmark textvqa --ckpt nyu-visionx/cambrian-13b --conv_mode llama_3
+bash scripts/run_benchmark.sh --benchmark textvqa --ckpt liuhaotian/llava-v1.6-mistral-7b --conv_mode llava_mistral
 "

@@ -9,7 +9,7 @@
 #SBATCH --output=cambrian_gqa.out
 #SBATCH --error=cambrian_gqa-error.txt
 #SBATCH --mail-user=matthew.dong@nyu.edu
-#SBATCH --mail-type=FAIL
+#SBATCH --mail-type=ALL
 
 singularity exec --nv --overlay $SCRATCH/new_env/overlay-50G-10M.ext3:ro /scratch/work/public/singularity/cuda11.8.86-cudnn8.7-devel-ubuntu22.04.2.sif /bin/bash -c "
 cd ..
@@ -30,5 +30,5 @@ if [ -f .env ]; then
 fi
 
 # Run your script
-bash scripts/run_benchmark.sh --benchmark gqa --ckpt nyu-visionx/cambrian-8b --conv_mode llama_3
+bash scripts/run_benchmark.sh --benchmark gqa --ckpt nyu-visionx/cambrian-13b --conv_mode llama_3
 "
